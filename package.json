@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "express": "^4.17.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "check_on_workers",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJackson510/check-on-my-workers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JJackson510/check-on-my-workers/issues"
+  },
+  "homepage": "https://github.com/JJackson510/check-on-my-workers#readme"
+}
