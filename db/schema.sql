@@ -2,22 +2,22 @@ DROP TABLE IF EXISTS department;
 DROP TABLE IF EXISTS role;
 DROP TABLE IF EXISTS employee;
 
-CREATE TABLE department(
-    id integer auto_increment primary key,
-    name varchar(30) not null
+CREATE TABLE department (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30)
 );
-
-CREATE TABLE role(
-    id integer auto_increment primary key,
-    title varchar(30) not null,
-    salary DECIMAL(5,2) not null,
-    department_id integer not null
+CREATE TABLE role (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL (10,2) NOT NULL,
+  department_id INTEGER,
+  FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE SET NULL
 );
-
-CREATE TABLE employee(
-    id integer auto_increment primary key,
-    first_name varchar(30) not null,
-    last_name varchar(30) not null,
-    role_id integer not null,
-    manager_id integer
+CREATE TABLE employee (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,  
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  role_id INTEGER,
+  manager_id INTEGER,
+  FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE SET NULL
 );
