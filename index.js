@@ -76,22 +76,27 @@ const viewEmployees = () => {
 };
 
 const addDepartments = () => {
-    inquirer.prompt(newDepartment)
-    .then((data) => {
-        const sql = `INSERT INTO department (name) VALUES (?)`;
-        db.query(sql, (data.name), (err, res) => {
-            if (err) {
-                res.status(400).json({ error: err.message });
-                return;
+        inquirer
+        .prompt([
+            {
+                name:'department',
+                type:'input',
+                message:'What is the name of the department?'
             }
-            console.log(`
+        ])  .then((data) => {
+            const sql = `INSERT INTO department (name) VALUES (?)`;
+            db.query(sql, (data.name), (err, res) => {
+                if (err) {
+                    res.status(400).json({ error: err.message });
+                    return;
+                }
+                console.log(`
 **** Department ${data.name} was successfully added! ****
-    `)
-        });
-        choices();
-    })
+        `)
+            });
+            choices();
+        })
 };
-
 
 
 
