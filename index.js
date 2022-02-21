@@ -118,8 +118,8 @@ const addRoles = () => {
             message:'What is the id of this role?'
         },
     ]).then(data => {
-        const sql = `INSERT INTO roles (title, salary, department_i) VALUES (?,?,?,?)`;
-        db.query(sql,(data.name, data.salary, data.department_id), (err, res) => {
+        const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?,?,?)`;
+        db.query(sql,(data.name, data.pay, data.id), (err, res) => {
             if(err){
                 res.status(400).json({ error: err.message });
                 return;
