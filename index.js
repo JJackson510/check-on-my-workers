@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const prompt = require('inquirer');
 const db = require('./db/connection');
 const cTable = require('console.table');
 
@@ -117,7 +118,7 @@ const addRoles = () => {
             type:'input',
             message:'What is the id of this role?'
         },
-    ]).then(data => {
+    ]).then((data) => {
         const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?,?,?)`;
         db.query(sql,(data.name, data.pay, data.id), (err, res) => {
             if(err){
@@ -127,8 +128,8 @@ const addRoles = () => {
             console.log(`
 **** Department  was successfully added! ****
     `)
+    choices();
         });
-            choices();
     })
 };
 
